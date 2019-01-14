@@ -1,7 +1,7 @@
 pipeline {
 	agent { label 'ATG'}
 	 triggers {
-        cron('H/01 0 0 1')
+        cron('H/1 1 1 1')
     }
      options { 
     skipDefaultCheckout()
