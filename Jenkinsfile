@@ -6,8 +6,6 @@ pipeline {
    }
   
 	 String cron_string = BRANCH_NAME == "demo" ? ' */1 * * *' : ''
-
-pipeline {
   triggers { cron(cron_string) }
   stages {
     stage('Clear workspace') {
