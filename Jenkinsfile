@@ -1,8 +1,6 @@
 pipeline {
 	agent { label 'ATG'}
-	 triggers {
-        cron('H / 1 1 1 1')
-    }
+	triggers{ cron('H/15 * * * *') }
      options { 
     skipDefaultCheckout()
     disableConcurrentBuilds()
