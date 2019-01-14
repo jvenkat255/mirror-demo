@@ -14,6 +14,11 @@ pipeline {
         cleanWs()
       }
     }  
+	  stage('mirror') {
+      steps {
+        bat "git clone --mirror [[credentialsId: 'jvenkat255', url: 'https://github.com/jvenkat255/aws-java-sample.git']]
+      }
+    }
     stage('Source Checkout') {
       steps {
         checkout([$class: 'GitSCM', branches: [[name: 'demo']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'jvenkat255', url: 'git@github.com:jvenkat255/mirror-demo.git']]])
