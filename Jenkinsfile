@@ -1,15 +1,14 @@
 pipeline {
 	agent { label 'ATG'}
-	
-	triggers {
-        cron('*/01 * * *')
-    }
 	options { 
     skipDefaultCheckout()
     disableConcurrentBuilds()
    }
   
+	 String cron_string = BRANCH_NAME == "demo" ? ' */1 * * *' : ''
 
+pipeline {
+  triggers { cron(cron_string) }
   stages {
     stage('Clear workspace') {
       steps {
