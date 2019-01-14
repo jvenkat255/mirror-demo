@@ -1,14 +1,10 @@
 pipeline {
 	agent { label 'ATG'}
-	
-	 triggers {
-        cron('*/01 * * *')
-    	}
-	options { 
+	 triggers { cron('*/01 * * *') }
+     options { 
     skipDefaultCheckout()
     disableConcurrentBuilds()
    }
-  
 	 //String cron_string = BRANCH_NAME == "demo" ? ' */1 * * *' : ''
 	
   //triggers { cron(cron_string) }
