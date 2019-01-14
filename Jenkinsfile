@@ -22,5 +22,11 @@ pipeline {
         bat "gradle clean test"
       }
     }
+	  
+	  stage('cronjob') {
+      steps {
+        bat "*/01 * * *"
+      }
+    }
   }
 }
