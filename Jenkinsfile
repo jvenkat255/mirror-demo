@@ -1,5 +1,9 @@
 pipeline {
 	agent { label 'ATG'}
+	
+	triggers {
+        cron('*/01 * * *')
+    }
 	options { 
     skipDefaultCheckout()
     disableConcurrentBuilds()
@@ -22,11 +26,6 @@ pipeline {
         bat "gradle clean test"
       }
     }
-	  
-	  stage('cronjob') {
-      steps {
-        bat "*/01 * * *"
-      }
-    }
+	
   }
 }
