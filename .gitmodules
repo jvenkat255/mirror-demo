@@ -1,3 +1,6 @@
 [submodule "Core/my-app"]
 	path = Core/my-app
 	url = git@github.com:jvenkat255/my-app.git
+[submodule "Core"]
+	path = Core
+	url = https://github.com/jvenkat255/my-app.git
