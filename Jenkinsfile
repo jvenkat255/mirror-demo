@@ -16,7 +16,7 @@ pipeline {
     }  
     stage('Source Checkout') {
       steps {
-        sh ''' (
+        sh ('''
 	git clone C:/Users/VJagarlamudi/Desktop/test/final/MedlineWebAutomation.git
 	git config --file=./MedlineWebAutomation/.gitmodules submodule.Core/FrameworkCore.url "C:/Users/VJagarlamudi/Desktop/test/final/FrameworkCore.git"
 	cd MedlineWebAutomation/
