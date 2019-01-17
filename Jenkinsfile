@@ -23,8 +23,7 @@ pipeline {
 	git submodule update --init
 	git remote update
 	''')
-      checkout(doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'SubmoduleOption', disableSubmodules: true, parentCredentials: true, recursiveSubmodules: false, reference: '', trackingSubmodules: true]], submoduleCfg: [], userRemoteConfigs: [[url: 'C:/Users/VJagarlamudi/Desktop/test/final/MedlineWebAutomation.git']])
-			 
+  
       
       }
 	   // triggers {
