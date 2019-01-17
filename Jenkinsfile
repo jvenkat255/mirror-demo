@@ -1,6 +1,6 @@
 pipeline {
 	agent { label 'ATG'}
-	triggers{ cron('H/15 * * * *') }
+	//triggers{ cron('H/15 * * * *') }
      options { 
     skipDefaultCheckout()
     disableConcurrentBuilds()
@@ -16,8 +16,15 @@ pipeline {
     }  
     stage('Source Checkout') {
       steps {
-        checkout([$class: 'GitSCM', branches: [[name: 'demo']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'jvenkat255', url: 'git@github.com:jvenkat255/mirror-demo.git']]])
-        }
+        git clone C:/Users/VJagarlamudi/Desktop/test/final/MedlineWebAutomation.git
+	git config --file=./MedlineWebAutomation/.gitmodules submodule.Core/FrameworkCore.url "C:/Users/VJagarlamudi/Desktop/test/final/FrameworkCore.git"
+	cd MedlineWebAutomation/
+	git submodule update --init
+	git remote update
+      checkout(doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'SubmoduleOption', disableSubmodules: true, parentCredentials: true, recursiveSubmodules: false, reference: '', trackingSubmodules: true]], submoduleCfg: [], userRemoteConfigs: [[url: 'C:/Users/VJagarlamudi/Desktop/test/final/MedlineWebAutomation.git']]])
+			}  
+      
+      }
 	   // triggers {
     		//cron(env.BRANCH_NAME == 'demo' ? '*/1 * * *' : '')
 	  //  }
