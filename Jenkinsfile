@@ -16,14 +16,13 @@ pipeline {
     }  
     stage('Source Checkout') {
       steps {
-        sh ('''
-	git clone C:/Users/VJagarlamudi/Desktop/test/final/MedlineWebAutomation.git
-	git config --file=./MedlineWebAutomation/.gitmodules submodule.Core/FrameworkCore.url "C:/Users/VJagarlamudi/Desktop/test/final/FrameworkCore.git"
-	cd MedlineWebAutomation/
-	git submodule update --init
-	git remote update
-	''')
+    sh "git clone C:/Users/VJagarlamudi/Desktop/test/final/MedlineWebAutomation.git"
+	sh 'git config --file=.MedlineWebAutomation/.gitmodules submodule.Core/FrameworkCore.url "C:/Users/VJagarlamudi/Desktop/test/final/FrameworkCore.git"'
+	sh 'cd MedlineWebAutomation/'
+	sh 'git submodule update --init'
+	sh 'git remote update'
   
+			 
       
       }
 	   // triggers {
